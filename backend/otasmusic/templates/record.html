@@ -1,0 +1,78 @@
+{% load i18n %}
+{% load record_helper %}
+
+<h2>{% include 'links/record_link.html' with record=record %}</h2>
+
+<!-- Band -->
+{% if record.band %}
+    {% trans 'Band' %}:
+    {% include "links/band_link.html" with band=record.band %}
+{% endif %}
+
+<!-- Album -->
+{% if record.album %}
+    <p>{% trans 'Album' %}: {% include 'links/album_link.html' with album=record.album %}</p>
+{% endif %}
+
+<!-- Creation date -->
+{% if record.creation_date %}
+    <p>{% trans 'Creation date' %}: {{ record.creation_date }}</p>
+{% endif %}
+
+<!-- Release date -->
+<p>{% trans 'Release date' %}: {{ record.release_date }}</p>
+
+<!-- Player -->
+{% include 'player.html' with url=record.url %}
+
+<div class="btmspace-10"></div>
+
+<!-- Record contributors -->
+{% if record.recordcontributor_set.all %}
+    <h3>{% trans "Contributors" %}</h3>
+    <table class="btmspace-15">
+        <thead>
+            <tr>
+                <th>{% trans "Person" %}
+                <th>{% trans "Contrib by" %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for record_contributor in record.recordcontributor_set.all %}
+                <tr>
+                    <td>{% include 'links/person_link.html' with person=record_contributor.person %}</td>
+                    <td>
+                        {% for record_contributor_skill in record_contributor.recordcontributorskill_set.all %}
+                            {{ record_contributor_skill.skill.get_slug_display }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
+<!-- YouTube comments -->
+{#{% with youtube_comments=record|get_youtube_comments %}#}
+{#    {% if youtube_comments %}#}
+{#        <h3>{% trans 'YouTube comments' %}</h3>#}
+{#        {% for comment in youtube_comments %}#}
+{#            <p class="btmspace-10">#}
+{#                <a href="{{ comment.snippet.topLevelComment.snippet.authorChannelUrl }}">#}
+{#                    <img src="{{ comment.snippet.topLevelComment.snippet.authorProfileImageUrl }}">#}
+{#                </a>#}
+{#                <a href="{{ comment.snippet.topLevelComment.snippet.authorChannelUrl }}">#}
+{#                    {{ comment.snippet.topLevelComment.snippet.authorDisplayName }}#}
+{#                </a>#}
+{#                <span style="color:grey;font-size:0.7em;">({{ comment.snippet.topLevelComment.snippet.updatedAt|str2date }})</span>#}
+{#                <br>#}
+{#                {{ comment.snippet.topLevelComment.snippet.textDisplay }}#}
+{#            </p>#}
+{#        {% endfor %}#}
+{#    {% endif %}#}
+{#{% endwith %}#}
+
+<div class="prev-next-container">
+    {% include 'next_prev_btn.html' with record=record|get_prev type='prev' %}
+    {% include 'next_prev_btn.html' with record=record|get_next type='next' %}
+</div>

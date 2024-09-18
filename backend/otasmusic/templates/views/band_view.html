@@ -1,0 +1,72 @@
+{% extends 'layout/content.html' %}
+{% load i18n %}
+{% block content %}
+    <h1>{{ band.name }}</h1>
+    <!-- Band info -->
+    <div class="wrapper">
+        <p>{% trans "City" %}: {{ band.city }}</p>
+        {% if band.date_from %}
+            <p>{% trans "Bands formation date" %}: {{ band.date_from }}</p>
+        {% endif %}
+        {% if band.date_to %}
+            <p>{% trans "Bands dissolution date" %}: {{ band.date_to }}</p>
+        {% endif %}
+
+        {% if band.bandcontact_set.all %}
+            <p>
+            {% for band_contact in band.bandcontact_set.all %}
+                {% include 'contact.html' with contact=band_contact.contact %}
+            {% endfor %}
+            </p>
+        {% endif %}
+    </div>
+
+{#    <!-- Songs -->#}
+{#    {% if band.song_set.all %}#}
+{#        <div class="wrapper">#}
+{#            <h2>{% trans "Songs" %}</h2>#}
+{#            <ul>#}
+{#            {% for song in band.song_set.all %}#}
+{#                <li>{% include 'links/song_link.html' with song=song %}</li>#}
+{#            {% endfor %}#}
+{#            </ul>#}
+{#        </div>#}
+{#    {% endif %}#}
+
+    <!-- Events -->
+    {% if band.event_set.all %}
+        <div class="wrapper">
+            <h2>{% trans "Upcoming events" %}</h2>
+            <ul>
+            {% for event in band.event_set.all %}
+                <li>
+                    {% include "links/event_link.html" with event=event %} |
+                    {{ event.start_datetime }}<br>
+                    {{ event.where }}<br>
+                    {% include 'event_band_gig_time.html' with event=event %}
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <!-- Albums -->
+    {% if band.album_set.all %}
+        <h2>{% trans "Albums" %}</h2>
+        <ul>
+        {% for album in band.album_set.all %}
+            <li>{% include 'links/album_link.html' with album=album %}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Records -->
+    {% if band.record_set.all %}
+        <h2>{% trans "Records" %}</h2>
+        <ul>
+        {% for record in band.record_set.all %}
+            <li>{% include 'links/record_link.html' with record=record include_song_name=True %}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock content %}

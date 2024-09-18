@@ -1,0 +1,1 @@
+<a href="{% url 'album' album.slug %}">{{ album.title }} {% if album.release_date %}({{ album.release_date|date:'Y' }}){% endif %}</a>

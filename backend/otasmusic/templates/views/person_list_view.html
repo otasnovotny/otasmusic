@@ -1,0 +1,27 @@
+{% extends 'layout/content.html' %}
+{% load i18n %}
+{% block content %}
+    <h1>{% trans "Persons" %}</h1>
+    {% if person_list %}
+        <table>
+            <thead>
+            <tr>
+                <th>{% trans "Person" %}</th>
+                <th style="width:20%">{% trans "Record contributor" %}</th>
+                <th style="width:20%">{% trans "Lyrics (co)author" %}</th>
+                <th style="width:20%">{% trans "Music (co)author" %}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in person_list %}
+                <tr>
+                    <td>{% include "links/person_link.html" with person=person %}</td>
+                    <td>{{ person.num_record_contributor }}</td>
+                    <td>{{ person.num_author_lyrics }}</td>
+                    <td>{{ person.num_author_music }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock content %}

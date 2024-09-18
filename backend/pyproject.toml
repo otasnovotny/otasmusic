@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "otasmusic"
+version = "0.1.0"
+description = "Otas music"
+authors = ["Ota Novotny <otas@otasovo.cz>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0"
+django-embed-video = "^1.4.9"
+setuptools = "^69.0.2"
+psycopg2-binary = "^2.9.9"
+django-environ = "^0.11.2"
+gunicorn = "^21.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

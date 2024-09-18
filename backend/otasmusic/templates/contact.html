@@ -1,0 +1,34 @@
+{% load filter_url %}
+{% load static %}
+
+<style>
+    img {
+        width: 30px;
+    }
+</style>
+
+{% if contact|is_valid_url %}
+    <a href="{{ contact }}">
+        {% if 'facebook' in contact %}
+            <img src="{% static 'icons/facebook.png' %}" title="{{ contact }}" />
+        {% elif 'soundcloud' in contact %}
+            <img src="{% static 'icons/soundcloud.png' %}" title="{{ contact }}" />
+        {% elif 'bandcamp' in contact %}
+            <img src="{% static 'icons/bandcamp.png' %}" title="{{ contact }}" />
+        {% elif 'bandzone' in contact %}
+            <img src="{% static 'icons/bandzone.png' %}" title="{{ contact }}" />
+        {% elif 'spotify' in contact %}
+            <img src="{% static 'icons/spotify.png' %}" title="{{ contact }}" />
+        {% elif 'youtube' in contact %}
+            <img src="{% static 'icons/youtube.png' %}" title="{{ contact }}" />
+        {% else %}
+            <img src="{% static 'icons/url.png' %}" title="{{ contact }}" />
+        {% endif %}
+    </a>
+{% elif contact|is_valid_email %}
+    <a href="mailto:{{ contact }}">
+        <img src="{% static 'icons/envelope.png' %}" title="{{ contact }}" />
+    </a>
+{% else %}
+    {{ contact }}
+{% endif %}

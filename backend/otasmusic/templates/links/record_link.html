@@ -1,0 +1,1 @@
+<a href="{% url 'record' record.slug %}">{% if include_song_name %}{{ record.song.name }} - {% endif %}{{ record.title }} ({{ record.release_date.year }})</a>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    {% include 'layout/head-contents.html' %}
+</head>
+<body id="top" class="overlay">
+
+{#<div class="row4">#}
+{#    {% include "lang_selector.html" %}#}
+{#    <nav id="mainav" class="hoc clear">#}
+{#        <ul class="clear">#}
+{#            {% with request.resolver_match.url_name as url_name %}#}
+{#                <li class="{% if url_name == 'home' %}active{% endif %}"><a href="{% url 'home' %}">{% trans "Home" %}</a></li>#}
+{#                <li class="{% if url_name == 'records' %}active{% endif %}"><a href="{% url 'records' %}">{% trans "Records" %}</a></li>#}
+{#                {% if request.user.is_authenticated and request.user.is_superuser %}#}
+{#                    <li class="{% if url_name == 'persons' %}active{% endif %}"><a href="{% url 'persons' %}">{% trans "Persons" %}</a></li>#}
+{#                {% endif %}#}
+{#                <li class="{% if url_name == 'person' %}active{% endif %}"><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>#}
+{#                {% if request.user.is_authenticated %}#}
+{#                    <li><a href="{% url 'logout' %}?next=/">{% trans "Logout" %}</a></li>#}
+{#                {% else %}#}
+{#                    <li class="{% if url_name == 'login' %}active{% endif %}"><a href="{% url 'login' %}?next=/">{% trans "Login" %}</a></li>#}
+{#                {% endif %}#}
+{#            {% endwith %}#}
+{#        </ul>#}
+{#    </nav>#}
+{#</div>#}
+
+{% block content_wrapper %}
+{% endblock %}
+
+{#    <script src="layout/scripts/jquery.min.js"></script>#}
+{#    <script src="layout/scripts/jquery.backtotop.js"></script>#}
+{#    <script src="layout/scripts/jquery.mobilemenu.js"></script>#}
+
+{#<script src="{% static "components/jquery.mobilemenu-otas.js" %}"></script>#}
+
+</body>
+</html>

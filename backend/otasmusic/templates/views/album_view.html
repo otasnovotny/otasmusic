@@ -1,0 +1,31 @@
+{% extends 'layout/content.html' %}
+{% load i18n %}
+{% block content %}
+    <h1>{{ album.title }}</h1>
+    <!-- Image -->
+    {% if album.url_img_front %}
+        <div style="float:left;max-width:50%;min-width:300px;margin: 0 15px 15px 0;">
+            <img src="{{ album.url_img_front }}" style="width:100%;" />
+        </div>
+    {% endif %}
+    <div style="float:left;">
+
+    <!-- Band -->
+    {% if album.band %}
+        <h2>{% trans 'Band' %}</h2>
+        <ul>
+            <li>{% include "links/band_link.html" with band=album.band%}</li>
+        </ul>
+    {% endif %}
+
+    <!-- Records -->
+    {% if album.record_set.all %}
+        <h2>{% trans 'Records' %}</h2>
+        <ul>
+        {% for record in album.record_set.all|dictsort:"album_order" %}
+            <li>{% include 'links/record_link.html' with record=record include_song_name=True %}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    </div>
+{% endblock content %}

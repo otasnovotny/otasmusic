@@ -1,0 +1,30 @@
+{% load i18n %}
+{% if song.authorlyrics_set.all %}
+    {% if song.lyrics %}
+        <a id="open-lyric-popup" title="{% trans "Click to display lyrics" %}">{% trans 'Lyrics' %}</a>:
+    {% else %}
+        {% trans 'Lyrics' %}:
+    {% endif %}
+    {% for authorlyrics in song.authorlyrics_set.all %}
+        {% include 'links/person_link.html' with person=authorlyrics.person %}{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+    <br />
+{% endif %}
+
+{% if song.lyrics %}
+    <div id="lyric-popup" title="{{ song.name }}" style="display: none;">
+      {{ song.lyrics|linebreaksbr }}
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#open-lyric-popup').click(function () {
+                $('#lyric-popup').dialog({
+                    width: 700,
+                    /*position: {
+                        at: "right top"
+                    }*/
+                })
+            })
+        });
+    </script>
+{% endif %}

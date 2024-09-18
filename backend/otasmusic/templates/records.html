@@ -1,0 +1,28 @@
+{# Embed area #}
+<div id="preloader" class="preloader">
+</div>
+<div id="recent_area">
+</div>
+
+<script>
+    $(function() {
+        getRecent();
+    });
+
+    function getRecent(page) {
+        if(page === undefined) {
+            page = 1;
+        }
+        $('#recent_area').html('');
+        $('#preloader').show();
+        $.ajax({
+            url: "/recent",
+            data: {'page': page},
+            async: true,
+            success : function(data) {
+                $('#recent_area').html(data);
+                $('#preloader').hide();
+            }
+        });
+    }
+</script>

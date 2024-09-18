@@ -1,0 +1,30 @@
+{% load i18n %}
+
+{% if record_list %}
+    {% for record in record_list %}
+        <div class="recent" data-record-slug="{{ record.slug }}">
+            <h2>{% include 'links/song_link.html' with song=record.song %} - {% include 'links/record_link.html' with record=record %}</h2>
+            {% include 'player.html' with url=record.url %}
+            <hr />
+        </div>
+    {% endfor %}
+{% endif %}
+
+{# Pagination #}
+{#{% if record_list.has_other_pages %}#}
+{#  <ul class="pagination">#}
+{#    {% if record_list.has_previous %}#}
+{#      <li><a onclick="getRecent({{ record_list.previous_page_number }});">&laquo; {% trans 'Previous' %}</a></li>#}
+{#    {% endif %}#}
+{#    {% for i in record_list.paginator.page_range %}#}
+{#      {% if record_list.number == i %}#}
+{#        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>#}
+{#      {% else %}#}
+{#        <li><a onclick="getRecent({{ i }});">{{ i }}</a></li>#}
+{#      {% endif %}#}
+{#    {% endfor %}#}
+{#    {% if record_list.has_next %}#}
+{#      <li><a onclick="getRecent({{ record_list.next_page_number }});">{% trans 'Next' %} &raquo;</a></li>#}
+{#    {% endif %}#}
+{#  </ul>#}
+{#{% endif %}#}

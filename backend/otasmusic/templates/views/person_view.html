@@ -1,0 +1,103 @@
+{% extends 'layout/content.html' %}
+{% load i18n %}
+{% block content %}
+    <h1>{% include "links/person_link.html" with person=person %}</h1>
+    {% if person.city %}
+        <p>{% trans "City" %}: {{ person.city }}</p>
+    {% endif %}
+    {% if person.personcontact_set.all %}
+        <p>
+        {% for person_contact in person.personcontact_set.all %}
+            {% include 'contact.html' with contact=person_contact.contact %}<br />
+        {% endfor %}
+        </p>
+    {% endif %}
+
+    <script>
+        $(function() {
+            $( "#tabs" ).tabs();
+        });
+    </script>
+
+    <div id="tabs">
+        <ul>
+            {% if record_contributors.all %}
+                <li><a href="#tabs-record-contributor">{% trans "Record contributor" %}</a></li>
+            {% endif %}
+            {% if author_lyrics.all %}
+                <li><a href="#tabs-author-lyrics">{% trans "Lyrics author/co-author" %}</a></li>
+            {% endif %}
+            {% if author_music.all %}
+                <li><a href="#tabs-author-music">{% trans "Music author/co-author" %}</a></li>
+            {% endif %}
+        </ul>
+
+        <!-- Record contributor -->
+        {% if record_contributors.all %}
+            <div id="tabs-record-contributor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{% trans "Record" %}</th>
+                            <th>{% trans "Contrib by" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record_contributor in record_contributors.all %}
+                            <tr>
+                                <td>{% include 'links/record_link.html' with record=record_contributor.record include_song_name=True %}</td>
+                                <td>
+                                {% for record_contributor_skill in record_contributor.recordcontributorskill_set.all %}
+                                    {{ record_contributor_skill.skill.get_slug_display }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+
+        <!-- Lyrics author -->
+        {% if author_lyrics.all %}
+            <div id="tabs-author-lyrics">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{% trans "Lyrics (co)author" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for author_lyrics in author_lyrics.all %}
+                            <tr>
+                                <td>{% include 'links/song_link.html' with song=author_lyrics.song %}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+
+        <!-- Music author -->
+        {% if author_music.all %}
+            <div id="tabs-author-music">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{% trans "Music (co)author" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for author_music in author_music.all %}
+                            <tr>
+                                <td>{% include 'links/song_link.html' with song=author_music.song %}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+    </div>
+
+
+{% endblock content %}

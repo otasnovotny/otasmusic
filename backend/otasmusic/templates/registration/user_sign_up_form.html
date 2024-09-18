@@ -1,0 +1,17 @@
+{% extends '../layout/content.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "title_sign_up" %}{% endblock %}
+
+{% block content %}
+  <h2>{% trans "heading_sign_up" %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <div class="g-recaptcha" data-sitekey="6Le3tk4UAAAAAG4L5F-P5VwbXWdRn8uarWzBUFPV"></div>
+
+    <button type="submit">{% trans "button_sign_up" %}</button>
+  </form>
+{% endblock %}

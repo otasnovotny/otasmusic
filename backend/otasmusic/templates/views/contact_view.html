@@ -1,0 +1,24 @@
+{% extends 'layout/content.html' %}
+{% load i18n %}
+{% block content %}
+    <h1>{% trans 'Contact' %}</h1>
+    <h2>Ota Novotný</h2>
+    <ul>
+        <li><a href="mailto:otas.novotny@gmail.com">otas.novotny@gmail.com</a></li>
+        <li>+420 777 125 417</li>
+    </ul>
+
+{#    <h2>{% trans 'Where you can find me' %}</h2>#}
+{#    <p class="btmspace-10">{% trans 'Guitar lessons and recording take place in my studio which you can find on the map below.'%}</p>#}
+{#    {% include 'map-iframe.html' %}#}
+{#    <div class="btmspace-15"></div>#}
+
+{#    <h2>{% trans 'Calendar' %}</h2>#}
+{#    {% url 'calendar' as calendar_url %}#}
+{#    <!-- Tento kalendář ukazuje, kdy mám volno. Lze jej zobrazit i mimo stránku. -->#}
+{#    <p class="btmspace-10">{% blocktrans %}This is my availability calendar. You can also see it in a <a href="{{ calendar_url }}">standalone version</a>{% endblocktrans %}.</p>#}
+{#    <div class="responsive-iframe">#}
+{#        {% include 'calendar-iframe.html' %}#}
+{#    </div>#}
+
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% load i18n %}
+<ul class="nospace group services">
+    <li class="one_third first">
+        <article><i class="fa fa-music"></i>
+            <h6 class="heading">{% trans 'Guitar lessons' %}</h6>
+            <!-- Chceš se učit na kytaru? Nebo už hraješ a chceš se zlepšovat a rozvíjet se? -->
+            <p>{% blocktrans %}Do you want to start playing the guitar? Do you play already and want to improve your skills?{% endblocktrans %}</p>
+            <footer><a class="btn" href="#">{% trans 'I want lessons' %}</a></footer>
+        </article>
+    </li>
+    <li class="one_third">
+        <article><i class="fa fa-microphone"></i>
+            <h6 class="heading">{% trans "Recording" %}</h6>
+            <!-- Máš už složený song a chceš ho nahrát? Jsou tu dva hlavní způsoby, jak to spáchat.  -->
+            <p>{% blocktrans %}Do you have a song and want to record it? There are two main ways of doing it.{% endblocktrans %}</p>
+            <footer><a class="btn" href="#">{% trans 'I want recording' %}</a></footer>
+        </article>
+    </li>
+    <li class="one_third">
+        <article><i class="fa fa-bar-chart"></i>
+            <h6 class="heading">{% trans 'Mixing' %}</h6>
+            <!-- Máš už něco nahraného? Výborně! Teď už to jen smíchat a někam to pověsit! -->
+            <p>{% blocktrans %}Have you already recorded anything? Excellent! The final step is to mix your tracks and publish.{% endblocktrans %}</p>
+            <footer><a class="btn" href="#">{% trans 'I want mixing' %}</a></footer>
+        </article>
+    </li>
+</ul>

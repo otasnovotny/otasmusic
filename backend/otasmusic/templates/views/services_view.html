@@ -1,0 +1,29 @@
+{% extends 'layout/content.html' %}
+{% load i18n %}
+{% block content %}
+    <h1>{% trans 'Services' %}</h1>
+    {% include 'services.html' %}
+    <div class="clear btmspace-30"></div>
+
+    <div class="wrapper">
+        <h1>{% trans 'Guitar lessons' %}</h1>
+        <p>
+            {% blocktrans %}
+                Kytaře, hlavně té elektrické, se věnuju od roku 2000. Za tu dobu jsem objevil pár fíglů a triků,
+                které se mi velmi osvědčily jak při individuálním seberozvoji, tak při spolupráci s ostatními muzikanty,
+                ať už to bylo ve zkušebně, na pódiu, či v nahrávacím studiu. Pokud tě tyto vychytávky zajímají, dej vědět,
+                rád se o ně podělím ;-)
+            {% endblocktrans %}
+        </p>
+
+        <h2>{% trans 'Kde výuka probíhá' %}</h2>
+        <p>
+            {% blocktrans %}
+                Nejlepší místo pro výuku je pro mě moje <a href="#">studio</a>, kde jsou k dispozici všechny potřebné hračky, jako jsou dvě kytarová komba,
+                efekty a hlavně prostředí, kde se dá ztropit i trocha kraválu bez rizika opruzení nervózními sousedy. Není pro mě problém dojet
+                za tebou domů, anebo do tvé zkušebny (v rámci Olomouce), ale přece jen preferuju tu svou.
+            {% endblocktrans %}
+        </p>
+    </div>
+
+{% endblock content %}

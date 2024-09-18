@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<html lang="{{ LANGUAGE_CODE }}">
+    <head>
+        {% include 'layout/head-contents.html' %}
+    </head>
+    <body class="plain">
+        <div class="responsive-iframe">
+            {% include 'calendar-iframe.html' %}
+        </div>
+    </body>
+</html>

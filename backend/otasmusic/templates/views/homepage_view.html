@@ -1,0 +1,100 @@
+{% extends 'layout/content.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+    <h1 style="font-size: 6rem; margin-bottom: 0.2rem;">oŤ@s Music</h1>
+    <p style="
+        color: black;
+        font-style: italic;
+        text-align: center;
+        margin: 0.5rem 0 2rem 0;
+        font-size: 1.5em;
+        letter-spacing: 0.5rem;
+        line-height: 3rem;">The art is a specific kind of madness</p>
+
+    {# services #}
+{#    {% include 'services.html' %}#}
+{#    <div class="clear btmspace-30"></div>#}
+
+    {# events #}
+    {% if event_list.all %}
+        <h1>{% trans 'Upcoming events' %}</h1>
+        <div class="events-container">
+            {% for event in event_list %}
+                <div class="
+                    event-container
+                    {% if event_list|length == 2 %}one_half{% elif event_list|length == 3 %}one_third{% endif %}
+                    {% if forloop.first %}first{% endif %}">
+
+                    <a href="{{ event.event_url }}" title="{{ event.event_url }}" style='background-image: url("{{ event.image_url }}")'></a>
+                    <div class="event-info">
+                        <div class="trimmed-line heading" title="{{ event.title }}">{{ event.title }}</div>
+                        <b>{{ event.start_datetime }}</b><br>
+                        <div class="trimmed-line where" title="{{ event.where }}">{{ event.where }}</div>
+{#                        <div class="trimmed-line">{% include "event_band_gig_time.html" with event=event %}</div>#}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="clear btmspace-30"></div>
+    {% endif %}
+
+
+{#    <h1>{% trans "Live stream" %}</h1>#}
+{#    {% include 'player.html' with url='https://youtu.be/kSJw7E_gUYY' %}#}
+{#    {% include 'player.html' with url='https://youtu.be/h7GIxJLvLIQ' %}#}
+
+{#    <h1>{% trans "Recent records" %}</h1>#}
+    <h1>{% trans "Records" %}</h1>
+    <p>
+        {% blocktrans with record_count=record_count person_count=person_count %}There are <nobr>{{ record_count }} records</nobr> on this page which were created by <nobr>{{ person_count }} collaborators.</nobr>{% endblocktrans %}
+    </p>
+
+{#    {% include 'records.html' %}<br />#}
+
+    {% if record_list %}
+        <table>
+            <thead>
+            <tr>
+                <th>{% trans "Record" %}</th>
+                <th>{% trans "Band" %}</th>
+                <th>{% trans "Album" %}</th>
+                <th>{% trans "Release date" %}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for record in record_list %}
+                {% if forloop.counter <= 3 %}
+                    <h2>{% include 'links/song_link.html' with song=record.song %} - {% include 'links/record_link.html' with record=record %}</h2>
+                    {% include 'player.html' with url=record.url %}
+                {% else %}
+                    <tr>
+                        <td class="first">{% include 'links/record_link.html' with record=record include_song_name=True %}</td>
+                        <td>{% if record.band  %}{% include 'links/band_link.html' with band=record.band %}{% endif %}</td>
+                        <td>{% if record.album  %}{% include 'links/album_link.html' with album=record.album %}{% endif %}</td>
+                        <td>{{ record.release_date }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{#    <div class="wrapper row4">#}
+{#        <footer id="footer" class="hoc clear">#}
+{#            <div>#}
+{#                <ul class="nospace linklist contact">#}
+{#                    <li><i class="fa fa-user"></i>Oťas Novotný</li>#}
+{#                    <li><i class="fa fa-map-marker"></i>#}
+{#                        <address>#}
+{#                            Olomouc, Czech Republic#}
+{#                        </address>#}
+{#                    </li>#}
+{#                    <li><i class="fa fa-phone"></i> +420 777 125 417</li>#}
+{#                    <li><i class="fa fa-envelope-o"></i>otas.novotny@gmail.com</li>#}
+{#                </ul>#}
+{#            </div>#}
+{#        </footer>#}
+{#    </div>#}
+{% endblock content %}

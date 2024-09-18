@@ -1,0 +1,24 @@
+{% load i18n %}
+
+<!-- Header -->
+<h1><a href="{% url "song" song.slug %}">{{ song.name }}</a></h1>
+
+<div style="margin-top:0.5em;margin-bottom:0.5em">
+    <!-- Authors - lyric -->
+    {% include 'lyrics.html' with song=song %}
+
+    <!-- Authors - music -->
+    {% if song.authormusic_set.all %}
+        {% trans 'Music' %}:
+        {% for authormusic in song.authormusic_set.all %}
+            {% include 'links/person_link.html' with person=authormusic.person %}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+        <br />
+    {% endif %}
+
+    <!-- Band -->
+    {% if song.band %}
+        {% trans 'Band' %}:
+        {% include "links/band_link.html" with band=song.band %}
+    {% endif %}
+</div>

@@ -1,0 +1,495 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-10 10:28+0200\n"
+"PO-Revision-Date: 2020-05-10 10:28+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 2.3\n"
+
+#: .\otasmusic\models.py:202
+msgid "accoustic guitar"
+msgstr "akustická kytara"
+
+#: .\otasmusic\models.py:203
+msgid "bass"
+msgstr "basa"
+
+#: .\otasmusic\models.py:204
+msgid "backing vocal"
+msgstr "doprovodný zpěv"
+
+#: .\otasmusic\models.py:205
+msgid "camera"
+msgstr "kamera"
+
+#: .\otasmusic\models.py:206
+msgid "drums track"
+msgstr "automatizované bicí"
+
+#: .\otasmusic\models.py:207
+msgid "drums"
+msgstr "bicí"
+
+#: .\otasmusic\models.py:208
+msgid "electric guitar"
+msgstr "elektrická kytara"
+
+#: .\otasmusic\models.py:209
+msgid "keyboard"
+msgstr "klávesy"
+
+#: .\otasmusic\models.py:210
+msgid "keyboard track"
+msgstr "automatizované klávesy"
+
+#: .\otasmusic\models.py:211
+msgid "lead vocal"
+msgstr "zpěv"
+
+#: .\otasmusic\models.py:212
+msgid "mastering"
+msgstr "mastering"
+
+#: .\otasmusic\models.py:213
+msgid "metallophone"
+msgstr "metalofon"
+
+#: .\otasmusic\models.py:214
+msgid "mix"
+msgstr "mix"
+
+#: .\otasmusic\models.py:215
+msgid "mouth organ"
+msgstr "foukací harmonika"
+
+#: .\otasmusic\models.py:216
+msgid "recording"
+msgstr "nahrávka"
+
+#: .\otasmusic\models.py:217
+msgid "saxophone"
+msgstr "saxofon"
+
+#: .\otasmusic\models.py:218
+msgid "trombone"
+msgstr "pozoun"
+
+#: .\otasmusic\models.py:219
+msgid "trumpet"
+msgstr "trubka"
+
+#: .\otasmusic\models.py:220
+msgid "video"
+msgstr "video"
+
+#: .\otasmusic\templates\event_band_gig_time.html:5
+#, python-format
+msgid "we play in order %(gig_order)s. around %(gig_datetime)s."
+msgstr "hrajem %(gig_order)s. v pořadí kolem %(gig_datetime)s."
+
+#: .\otasmusic\templates\event_band_gig_time.html:7
+#, python-format
+msgid "we play in order %(gig_order)s."
+msgstr "hrajem %(gig_order)s. v pořadí"
+
+#: .\otasmusic\templates\event_band_gig_time.html:9
+#, python-format
+msgid "we play around %(gig_datetime)s."
+msgstr "hrajem kolem %(gig_datetime)s."
+
+#: .\otasmusic\templates\event_band_gig_time.html:11
+msgid "we don't know exactly when we are playing neither band ordering."
+msgstr "zatím nevíme kolikátí ani v kolik hrajem"
+
+#: .\otasmusic\templates\layout\content.html:8
+msgid "Home"
+msgstr "Domů"
+
+#: .\otasmusic\templates\layout\content.html:11
+#: .\otasmusic\templates\views\contact_view.html:4
+msgid "Contact"
+msgstr "Kontakt"
+
+#: .\otasmusic\templates\lyrics.html:4
+msgid "Click to display lyrics"
+msgstr "Kliknutím zobrazíte text"
+
+#: .\otasmusic\templates\lyrics.html:4 .\otasmusic\templates\lyrics.html:6
+msgid "Lyrics"
+msgstr "Text"
+
+#: .\otasmusic\templates\next_prev_btn.html:6
+msgid "Previous record"
+msgstr "Předchozí nahrávka"
+
+#: .\otasmusic\templates\next_prev_btn.html:6
+msgid "Next record"
+msgstr "Další nahrávka"
+
+#: .\otasmusic\templates\player.html:8
+msgid "Your browser does not support the audio element."
+msgstr "Váš prohlížeč nepodporuje audio element."
+
+#: .\otasmusic\templates\record.html:8
+#: .\otasmusic\templates\song_header.html:21
+#: .\otasmusic\templates\views\album_view.html:15
+#: .\otasmusic\templates\views\homepage_view.html:60
+#: .\otasmusic\templates\views\record_list_view.html:10
+msgid "Band"
+msgstr "Kapela"
+
+#: .\otasmusic\templates\record.html:14
+#: .\otasmusic\templates\views\homepage_view.html:61
+#: .\otasmusic\templates\views\record_list_view.html:11
+msgid "Album"
+msgstr "Album"
+
+#: .\otasmusic\templates\record.html:19
+msgid "Creation date"
+msgstr "Datum vytvoření"
+
+#: .\otasmusic\templates\record.html:23
+#: .\otasmusic\templates\views\homepage_view.html:62
+#: .\otasmusic\templates\views\record_list_view.html:12
+msgid "Release date"
+msgstr "Datum vydání"
+
+#: .\otasmusic\templates\record.html:32
+msgid "Contributors"
+msgstr "Spolupracovali"
+
+#: .\otasmusic\templates\record.html:36
+#: .\otasmusic\templates\views\person_list_view.html:9
+msgid "Person"
+msgstr "Úleťák"
+
+#: .\otasmusic\templates\record.html:37
+#: .\otasmusic\templates\views\person_view.html:42
+msgid "Contrib by"
+msgstr "Co spáchal(a)"
+
+#: .\otasmusic\templates\record.html:58
+msgid "YouTube comments"
+msgstr "Komentáře na YouTube"
+
+#: .\otasmusic\templates\registration\login.html:4
+#: .\otasmusic\templates\registration\login.html:7
+msgid "Login"
+msgstr "Přihlásit"
+
+#: .\otasmusic\templates\registration\logout.html:4
+#: .\otasmusic\templates\registration\logout.html:7
+msgid "Logout"
+msgstr "Odhlásit"
+
+#: .\otasmusic\templates\registration\logout.html:8
+msgid "You were logged out."
+msgstr "Byl jsi odhlášen"
+
+#: .\otasmusic\templates\registration\user_sign_up_form.html:4
+msgid "title_sign_up"
+msgstr "Přihlásit se"
+
+#: .\otasmusic\templates\registration\user_sign_up_form.html:7
+msgid "heading_sign_up"
+msgstr "Přihlášení"
+
+#: .\otasmusic\templates\registration\user_sign_up_form.html:15
+msgid "button_sign_up"
+msgstr "Přihlásit"
+
+#: .\otasmusic\templates\services.html:5
+#: .\otasmusic\templates\views\services_view.html:9
+msgid "Guitar lessons"
+msgstr "Výuka kytary"
+
+#: .\otasmusic\templates\services.html:7
+msgid ""
+"Do you want to start playing the guitar? Do you play already and want to "
+"improve your skills?"
+msgstr ""
+"Chceš se učit na kytaru? Nebo už hraješ a chceš se rozvíjet? Pak jsi tu "
+"správně."
+
+#: .\otasmusic\templates\services.html:8
+msgid "I want lessons"
+msgstr "Chci lekce"
+
+#: .\otasmusic\templates\services.html:13
+msgid "Recording"
+msgstr "Nahrávání"
+
+#: .\otasmusic\templates\services.html:15
+msgid ""
+"Do you have a song and want to record it? There are two main ways of doing "
+"it."
+msgstr ""
+"Máš už složený song a chceš ho nahrát? Jsou tu dva hlavní způsoby, jak to "
+"spáchat."
+
+#: .\otasmusic\templates\services.html:16
+msgid "I want recording"
+msgstr "Chci nahrávat"
+
+#: .\otasmusic\templates\services.html:21
+msgid "Mixing"
+msgstr "Mixáž"
+
+#: .\otasmusic\templates\services.html:23
+msgid ""
+"Have you already recorded anything? Excellent! The final step is to mix your "
+"tracks and publish."
+msgstr ""
+"Už máš něco nahraného? Výborně! Teď už to jen smíchat a někam to pověsit."
+
+#: .\otasmusic\templates\services.html:24
+msgid "I want mixing"
+msgstr "Chci mixáž"
+
+#: .\otasmusic\templates\song_header.html:12
+msgid "Music"
+msgstr "Hudba"
+
+#: .\otasmusic\templates\views\album_view.html:23
+#: .\otasmusic\templates\views\band_view.html:65
+#: .\otasmusic\templates\views\homepage_view.html:48
+#: .\otasmusic\templates\views\record_list_view.html:4
+msgid "Records"
+msgstr "Nahrávky"
+
+#: .\otasmusic\templates\views\band_view.html:7
+#: .\otasmusic\templates\views\person_view.html:6
+msgid "City"
+msgstr "Město"
+
+#: .\otasmusic\templates\views\band_view.html:9
+msgid "Bands formation date"
+msgstr "Datum vzniku kapely"
+
+#: .\otasmusic\templates\views\band_view.html:12
+msgid "Bands dissolution date"
+msgstr "Datum ukončení činnosti"
+
+#: .\otasmusic\templates\views\band_view.html:39
+#: .\otasmusic\templates\views\homepage_view.html:22
+msgid "Upcoming events"
+msgstr "Plánované akce"
+
+#: .\otasmusic\templates\views\band_view.html:55
+msgid "Albums"
+msgstr "Alba"
+
+#: .\otasmusic\templates\views\errors\error404.html:4
+msgid "Page not found"
+msgstr "Stránka nebyla nalezena"
+
+#: .\otasmusic\templates\views\event_view.html:14
+msgid "Event detail"
+msgstr "Detail akce"
+
+#: .\otasmusic\templates\views\homepage_view.html:44
+msgid "Live stream"
+msgstr "Přímý přenos"
+
+#: .\otasmusic\templates\views\homepage_view.html:50
+#, python-format
+msgid ""
+"There are <nobr>%(record_count)s records</nobr> on this page which were "
+"created by <nobr>%(person_count)s collaborators.</nobr>"
+msgstr ""
+"Na těchto stránkách najdeš <nobr>%(record_count)s nahrávek</nobr>, na "
+"kterých se podílelo <nobr>%(person_count)s lidí.</nobr>"
+
+#: .\otasmusic\templates\views\homepage_view.html:59
+#: .\otasmusic\templates\views\person_view.html:41
+#: .\otasmusic\templates\views\record_list_view.html:9
+msgid "Record"
+msgstr "Nahrávka"
+
+#: .\otasmusic\templates\views\person_list_view.html:4
+msgid "Persons"
+msgstr "Lidé"
+
+#: .\otasmusic\templates\views\person_list_view.html:10
+#: .\otasmusic\templates\views\person_view.html:25
+msgid "Record contributor"
+msgstr "Podílel(a) se"
+
+#: .\otasmusic\templates\views\person_list_view.html:11
+#: .\otasmusic\templates\views\person_view.html:67
+msgid "Lyrics (co)author"
+msgstr "(Co)autor textu"
+
+#: .\otasmusic\templates\views\person_list_view.html:12
+#: .\otasmusic\templates\views\person_view.html:87
+msgid "Music (co)author"
+msgstr "(Co)autor hudby"
+
+#: .\otasmusic\templates\views\person_view.html:28
+msgid "Lyrics author/co-author"
+msgstr "Autor/Co-autor textu"
+
+#: .\otasmusic\templates\views\person_view.html:31
+msgid "Music author/co-author"
+msgstr "Autor/Co-autor hudby"
+
+#: .\otasmusic\templates\views\services_view.html:4
+msgid "Services"
+msgstr "Služby"
+
+#: .\otasmusic\templates\views\services_view.html:11
+msgid ""
+"\n"
+"                Kytaře, hlavně té elektrické, se věnuju od roku 2000. Za tu "
+"dobu jsem objevil pár fíglů a triků,\n"
+"                které se mi velmi osvědčily jak při individuálním "
+"seberozvoji, tak při spolupráci s ostatními muzikanty,\n"
+"                ať už to bylo ve zkušebně, na pódiu, či v nahrávacím studiu. "
+"Pokud tě tyto vychytávky zajímají, dej vědět,\n"
+"                rád se o ně podělím ;-)\n"
+"            "
+msgstr ""
+
+#: .\otasmusic\templates\views\services_view.html:19
+msgid "Kde výuka probíhá"
+msgstr ""
+
+#: .\otasmusic\templates\views\services_view.html:21
+msgid ""
+"\n"
+"                Nejlepší místo pro výuku je pro mě moje <a href=\"#"
+"\">studio</a>, kde jsou k dispozici všechny potřebné hračky, jako jsou dvě "
+"kytarová komba,\n"
+"                efekty a hlavně prostředí, kde se dá ztropit i trocha "
+"kraválu bez rizika opruzení nervózními sousedy. Není pro mě problém dojet\n"
+"                za tebou domů, anebo do tvé zkušebny (v rámci Olomouce), ale "
+"přece jen preferuju tu svou.\n"
+"            "
+msgstr ""
+
+#: .\config\settings_default.py:99
+msgid "Czech"
+msgstr "Čeština"
+
+#: .\config\settings_default.py:100
+msgid "English"
+msgstr "Angličtina"
+
+#~ msgid "Recent records"
+#~ msgstr "Poslední nahrávky"
+
+#~ msgid ""
+#~ "This is my availability calendar. You can also see it in a <a href="
+#~ "\"%(calendar_url)s\">standalone version</a>"
+#~ msgstr ""
+#~ "Tento kalendář ukazuje, kdy mám volno. Lze jej zobrazit i <a href="
+#~ "\"%(calendar_url)s\">mimo stránku</a>"
+
+#~ msgid "This is my <a href=\"%(calendar_url)s\">availability calendar</a>."
+#~ msgstr ""
+#~ "<a href=\"%(calendar_url)s\">Tenhle kalendář</a> ukazuje, kdy mám volno."
+
+#~ msgid ""
+#~ "These are most recent records. To see all records go to the <a href="
+#~ "\"%(records_url)s\">Records</a> page."
+#~ msgstr ""
+#~ "Toto jsou nejaktuálnější nahrávky. Všechny pěkně pohromadě najdeš na "
+#~ "stránce <a href=\"%(records_url)s\">Nahrávky</a>."
+
+#~ msgid ""
+#~ "These are most recent records. You can play it directly or click a record "
+#~ "title to see more details."
+#~ msgstr ""
+#~ "Toto jsou nejaktuálnější nahrávky. Můžete si je přehrát rovnou nebo si "
+#~ "rozkliknout jejich detail."
+
+#, fuzzy
+#~| msgid "mix"
+#~ msgid "Mix"
+#~ msgstr "mix"
+
+#~ msgid "Welcome to otas-music!"
+#~ msgstr "Vítejte na otas-music!"
+
+#~ msgid ""
+#~ " This web contains %(record_count)s records by %(person_count)s "
+#~ "collaborators."
+#~ msgstr ""
+#~ "Na tomto webu najdete %(record_count)s nahrávek, na kterých "
+#~ "spolupracovalo %(person_count)s lidí."
+
+#~ msgid "Songs"
+#~ msgstr "Skladby"
+
+#~ msgid "Song"
+#~ msgstr "Skladba"
+
+#~ msgid "Click to see more records"
+#~ msgstr "Klikni pro zobrazení dalších nahrávek"
+
+#~ msgid "More"
+#~ msgstr "Více"
+
+#~ msgid "guitar"
+#~ msgstr "kytara"
+
+#~ msgid "guitars"
+#~ msgstr "kytary"
+
+#~ msgid "vocal"
+#~ msgstr "zpěv"
+
+#~ msgid "vocals"
+#~ msgstr "zpěvy"
+
+#~ msgid "Admin"
+#~ msgstr "Admin"
+
+#~ msgid "since"
+#~ msgstr "od"
+
+#~ msgid "to"
+#~ msgstr "do"
+
+#~ msgid "Contacts"
+#~ msgstr "Kontakty"
+
+#~ msgid "Members"
+#~ msgstr "Členové"
+
+#~ msgid ""
+#~ " These members of %(band_name)s have significantly contributed to records "
+#~ "which could be found on this website"
+#~ msgstr ""
+#~ "Tito členové kapely %(band_name)s se významnou měrou podíleli na spáchání "
+#~ "některých hudebních úletů, které tu můžete najít"
+
+#~ msgid "Bands"
+#~ msgstr "Kapely"
+
+#~ msgid "Song versions"
+#~ msgstr "Verze skladeb"
+
+#~ msgid "Version"
+#~ msgstr "Verze"
+
+#~ msgid "As a band"
+#~ msgstr "Jako kapela"
+
+#~ msgid "Band breakdown date"
+#~ msgstr "Datum rozpadu kapely"
+
+#~ msgid "Hall of Fame"
+#~ msgstr "Síň slávy"

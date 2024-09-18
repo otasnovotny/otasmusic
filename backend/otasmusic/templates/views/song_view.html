@@ -1,0 +1,17 @@
+{% extends 'layout/content.html' %}
+{% load i18n %}
+{% block content %}
+
+    {% include 'song_header.html' with song=song %}
+
+    <!-- Records -->
+    {% if song.record_set.all %}
+        {% for record in song.record_set.all %}
+            {% include 'record.html' with record=record %}
+            {% if not forloop.last %}
+                <hr style="margin-top: 30px;">
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+{% endblock content %}

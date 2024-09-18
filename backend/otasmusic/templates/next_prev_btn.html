@@ -1,0 +1,10 @@
+{% load i18n %}
+{% if record %}
+    <a
+        href="{% url 'record' record.slug %}"
+        class="btn {% if type == 'prev' %}prev-btn{% else %}next-btn{% endif %}"
+        title="{% if type == 'prev' %}{% trans 'Previous record' %}{% else %}{% trans 'Next record' %}{% endif %}: {{ record.song.name }} - {{ record.title }} ({{ record.release_date.year }})">
+
+        {% if type == 'prev' %}«{% else %}»{% endif %}
+    </a>
+{% endif %}

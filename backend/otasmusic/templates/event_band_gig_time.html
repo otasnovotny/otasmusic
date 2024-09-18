@@ -1,0 +1,12 @@
+{% load i18n %}
+
+{% include "links/band_link.html" with band=event.band %}
+{% if event.gig_order and event.gig_datetime %}
+    {% blocktrans with gig_order=event.gig_order gig_datetime=event.gig_datetime|time %}we play in order {{ gig_order }}. around {{ gig_datetime }}.{% endblocktrans %}
+{% elif event.gig_order and not event.gig_datetime %}
+    {% blocktrans with gig_order=event.gig_order %}we play in order {{ gig_order }}.{% endblocktrans %}
+{% elif event.gig_datetime and not event.gig_order %}
+    {% blocktrans with gig_datetime=event.gig_datetime|time %}we play around {{ gig_datetime }}.{% endblocktrans %}
+ {% elif not event.gig_datetime and not event.gig_order %}
+    {% trans "we don't know exactly when we are playing neither band ordering." %}
+{% endif %}

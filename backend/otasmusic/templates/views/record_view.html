@@ -1,0 +1,6 @@
+{% extends 'layout/content.html' %}
+{% load i18n %}
+{% block content %}
+    {% include 'song_header.html' with song=record.song %}
+    {% include 'record.html' with record=record %}
+{% endblock content %}

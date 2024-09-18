@@ -1,0 +1,25 @@
+{% extends 'layout/index.html' %}
+
+{% load i18n %}
+{% block content_wrapper %}
+<div class="main-content hoc">
+    <div style="float:left;width:100%;">
+        <div style="float:left;">
+            <a href="/" title="{% trans 'Home' %}">
+                <span class="ui-icon ui-icon-home"></span>
+            </a>
+            <a href="{% url 'person' 'otas-novotny' %}" title="{% trans 'Contact' %}">
+                <span class="ui-icon ui-icon-mail-closed"></span>
+            </a>
+        </div>
+        {% include "lang_selector.html" %}
+    </div>
+
+    {% block content %}
+    {% endblock content %}
+
+    <div class="footer">
+        Powered by <a href="https://www.djangoproject.com/">Django</a> developed by <a href="{% url 'person' 'otas-novotny' %}">oŤ@s</a>
+    </div>
+</div>
+{% endblock content_wrapper %}

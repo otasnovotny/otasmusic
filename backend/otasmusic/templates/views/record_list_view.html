@@ -1,0 +1,27 @@
+{% extends 'layout/content.html' %}
+{% load i18n %}
+{% block content %}
+    <h1>{% trans "Records" %}</h1>
+    {% if record_list %}
+        <table>
+            <thead>
+            <tr>
+                <th><a href="?ordering=song__name">{% trans "Record" %}</a></th>
+                <th><a>{% trans "Band" %}</a></th>
+                <th><a>{% trans "Album" %}</a></th>
+                <th><a href="?ordering=-release_date">{% trans "Release date" %}</a></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for record in record_list %}
+                <tr>
+                    <td>{% include 'links/record_link.html' with record=record include_song_name=True %}</td>
+                    <td>{% if record.band  %}{% include 'links/band_link.html' with band=record.band %}{% endif %}</td>
+                    <td>{% if record.album  %}{% include 'links/album_link.html' with album=record.album %}{% endif %}</td>
+                    <td>{{ record.release_date }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock content %}
