@@ -5,8 +5,8 @@
 
 __pycache__
 
-db_data
-db_backup/*.psql
+dbdata
+dbdump/otasmusic.psql
 backend/django.env
 db.env
 

@@ -2,7 +2,7 @@
 #docker compose exec -T db psql -U otasmusic -d otasmusic < ./../../db/otasmusic.psql
 
 docker compose down
-sudo rm -r data
+sudo rm -r dbdata
 docker compose up -d
 
 echo "Waiting for postgres server is up"
@@ -12,4 +12,4 @@ do
 done
 
 echo "Restoring database"
-docker compose exec -T db psql otasmusic otasmusic < otasmusic.psql
+docker compose exec -T postgres_db psql otasmusic otasmusic < ./dbdump/otasmusic.psql
