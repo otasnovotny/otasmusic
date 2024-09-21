@@ -1,6 +1,6 @@
 .idea
 .venv
-.env
+backend/.env
 *.psql
 
 __pycache__
