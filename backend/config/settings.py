@@ -19,6 +19,7 @@ DATABASES = {
 DEBUG = True
 SECRET_KEY = env.str('SECRET_KEY')
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'music.otasovo.cz']
+CSRF_TRUSTED_ORIGINS = ['music.otasovo.cz'],
 
 # Application definition
 INSTALLED_APPS = [
