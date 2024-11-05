@@ -19,7 +19,7 @@ DATABASES = {
 DEBUG = True
 SECRET_KEY = env.str('SECRET_KEY')
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'music.otasovo.cz']
-CSRF_TRUSTED_ORIGINS = ['music.otasovo.cz'],
+# CSRF_TRUSTED_ORIGINS = ['https://music.otasovo.cz'],
 
 # Application definition
 INSTALLED_APPS = [
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'otasmusic',
     'embed_video',
 ]
@@ -38,6 +39,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
