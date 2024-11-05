@@ -8,7 +8,7 @@ __pycache__
 dbdata
 dbdump/otasmusic.psql
 backend/django.env
-db.env
+.env.db
 
 backend/static/*
 backend/otasmusic/static/tracks
