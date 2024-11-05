@@ -2,6 +2,7 @@ volumes:
   static_volume:
 
 services:
+  # docker compose exec -it postgres_db psql -U otasmusic -d otasmusic
   postgres_db:
     image: postgres:latest
     restart: unless-stopped
