@@ -18,7 +18,7 @@ DATABASES = {
 
 DEBUG = True
 SECRET_KEY = env.str('SECRET_KEY')
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', env.db('DOMAIN')]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', env.str('DOMAIN')]
 # CSRF_TRUSTED_ORIGINS = ['https://music.otasovo.cz'],
 
 # Application definition
