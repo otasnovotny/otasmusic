@@ -9,8 +9,11 @@ services:
     env_file:
       - .env
     # only if we want to access container from local (host) machine
-#    ports:
-#      - '${POSTGRES_PORT:-5432}:5432'
+    ports:
+      - '${POSTGRES_PORT:-5432}:5432'
+    profiles:
+      - prod
+      - db
 
   django_app:
     # docker compose exec -it django_app python manage.py collectstatic
@@ -28,6 +31,8 @@ services:
       - postgres_db
     ports:
       - '${DJANGO_PORT:-8000}:8000'
+    profiles:
+      - prod
 
   nginx:
     image: nginx:latest
@@ -48,6 +53,8 @@ services:
       - "traefik.http.routers.otasmusic.rule=Host(`${DOMAIN}`)"
       - "traefik.http.routers.otasmusic.tls=true"
       - "traefik.http.routers.otasmusic.tls.certresolver=default"
+    profiles:
+      - prod
 
 volumes:
   static_volume:
