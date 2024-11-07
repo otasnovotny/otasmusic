@@ -6,9 +6,6 @@
     <audio controls>
         <source src="{{ url|prepare_source }}" type="audio/mpeg">
     </audio>
-{% elif 'youtube.com' in url or 'youtu.be' in url %}
-    <!-- Problem with embed youtube video on sites with https -->
-    <a href="{{ url }}" class="bold">{{ url }}</a>
 {% else %}
-    {% video url '100% x 100%' %}
+    {% video url '100% x 100%' is_secure=True %}
 {% endif %}
