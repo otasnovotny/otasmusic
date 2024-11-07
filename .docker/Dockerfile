@@ -16,4 +16,4 @@ RUN pip install poetry
 RUN poetry install
 
 # TODO Otas port
-CMD 'poetry' 'run' 'gunicorn' 'config.wsgi:application' '-b' ':8000' '--reload'
+CMD ["poetry", "run", "gunicorn", "config.wsgi:application", "-b", ":8000", "--reload"]
