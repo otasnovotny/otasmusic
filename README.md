@@ -4,7 +4,8 @@ This app was created nearby 2016 when I needed to know what record I've done, wh
 
 Currently it's running on [music.otasovo.cz](https://music.otasovo.cz/).
 
-Clone repo and navigate to the root folder
+- Clone repo and navigate to the root folder
+- Copy `tracks` folder (if any) into `./backend/static/`.
 
 ## Pure `localhost` approach
 
