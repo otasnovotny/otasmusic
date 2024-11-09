@@ -43,3 +43,15 @@ docker compose -f compose.dev.yml exec -it app python manage.py collectstatic
 ```
 
 Check browser at http://localhost
+
+# Database
+
+## Backup
+```
+docker compose -f compose.dev.yml exec -it db pg_dump -U otasmusic -d otasmusic -f /tmp/otasmusic.psql
+```
+
+## Restore
+```
+docker compose -f compose.dev.yml exec -it db psql -U otasmusic -d otasmusic -f /docker-entrypoint-initdb.d/otasmusic.psql
+```

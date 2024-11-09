@@ -5,6 +5,9 @@ services:
     volumes:
       - ./dbdump:/docker-entrypoint-initdb.d
       - ./dbdata:/var/lib/postgresql/data
+    # necessary only the first time when initializing container
+#    env_file:
+#      - .env
     ports:
       - '${POSTGRES_PORT:-5432}:5432'
 
