@@ -22,7 +22,7 @@ from otasmusic.views import SongDetailView, RecordListView, HomePageView, Person
 
 
 urlpatterns = [
-    # re_path(r'^admin/', admin.site.urls),
+    re_path(r'^admin/', admin.site.urls),
     # re_path(r'^login/$', auth_views.login, name='login'),
     # re_path(r'^logout/$', auth_views.logout_then_login, name='logout'),
     # re_path(r'^signup/$', UserSignUpView.as_view(), name='signup'),

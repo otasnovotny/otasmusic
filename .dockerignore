@@ -8,6 +8,5 @@ backend/otasmusic/cache
 
 .dockerignore
 .gitignore
-.docker/Dockerfile
+.docker/Dockerfile.dev
 ./README.md
-./build-image.sh

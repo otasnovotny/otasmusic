@@ -8,12 +8,11 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 WORKDIR /usr/src/backend
-COPY ./../.env ./
+COPY ./../.env ./../
 COPY ./../backend/pyproject.toml ./
 
 RUN pip install --upgrade pip
 RUN pip install poetry
 RUN poetry install
 
-# TODO Otas port
 CMD ["poetry", "run", "gunicorn", "config.wsgi:application", "-b", ":8000", "--reload"]

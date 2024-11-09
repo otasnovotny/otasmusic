@@ -1,49 +1,38 @@
 services:
-  # docker compose exec -it postgres_db psql -U otasmusic -d otasmusic
-  postgres_db:
+  db:
     image: postgres:latest
     restart: unless-stopped
     volumes:
       - ./dbdump:/docker-entrypoint-initdb.d
       - ./dbdata:/var/lib/postgresql/data
-    env_file:
-      - .env
-    # only if we want to access container from local (host) machine
     ports:
       - '${POSTGRES_PORT:-5432}:5432'
-    profiles:
-      - prod
-      - db
 
-  django_app:
-    # docker compose exec -it django_app python manage.py collectstatic
-    image: otasmusic/backend
+  app:
+    image: otasmusic/backend:dev
     build:
       context: .
-      dockerfile: ./.docker/Dockerfile
+      dockerfile: .docker/Dockerfile.dev
     restart: unless-stopped
     volumes:
       # share static content to nginx container
       - static_volume:/usr/src/backend/static
       - ./backend:/usr/src/backend
-      - ./.env:/usr/src/backend/.env
     depends_on:
-      - postgres_db
+      - db
     ports:
-      - '${DJANGO_PORT:-8000}:8000'
-    profiles:
-      - prod
+      - '${APP_PORT:-8000}:8000'
 
   nginx:
     image: nginx:latest
     restart: unless-stopped
     depends_on:
-      - django_app
+      - app
 
     # uncomment if needed access from host (browser), otherwise keep commented
     # because clashes with other nginx instances (with port 80)
-#    ports:
-#      - '${NGINX_PORT:-80}:80'
+    ports:
+      - '${NGINX_PORT:-80}:80'
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       # provide static data from [app] to [nginx]
@@ -53,8 +42,6 @@ services:
       - "traefik.http.routers.otasmusic.rule=Host(`${DOMAIN}`)"
       - "traefik.http.routers.otasmusic.tls=true"
       - "traefik.http.routers.otasmusic.tls.certresolver=default"
-    profiles:
-      - prod
 
 volumes:
   static_volume:

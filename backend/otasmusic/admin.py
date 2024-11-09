@@ -1,3 +1,8 @@
 from django.contrib import admin
+from otasmusic.models import Album
 
-# Register your models here.
+
+class AlbumAdmin(admin.ModelAdmin):
+    list_display = ("title", )
+
+admin.site.register(Album, AlbumAdmin)

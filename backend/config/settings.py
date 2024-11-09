@@ -6,7 +6,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CONFIG_ROOT = os.path.join(BASE_DIR, 'config')
 
 # read secret .env variables
-env_file = os.path.join(BASE_DIR, '.env')
+env_file = os.path.join(BASE_DIR - 1, '.env')
 if not os.path.isfile(env_file):
     raise FileNotFoundError('Configuration file .env does not exist!')
 env = environ.Env()
