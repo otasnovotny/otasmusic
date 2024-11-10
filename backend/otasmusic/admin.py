@@ -33,15 +33,15 @@ admin.site.register(Album, AlbumAdmin)
 
 
 # == song ==
-class AuthorLyricsInline(admin.TabularInline):  # Or use StackedInline for a different layout
+class AuthorLyricsInline(admin.TabularInline):
   model = AuthorLyrics
 
 
-class AuthorMusicInline(admin.TabularInline):  # Or use StackedInline for a different layout
+class AuthorMusicInline(admin.TabularInline):
   model = AuthorMusic
   extra = 1
 
-class RecordInline(admin.StackedInline):  # Or use StackedInline for a different layout
+class RecordInline(admin.StackedInline):
   model = Record
   extra = 1
 
@@ -51,6 +51,18 @@ class SongAdmin(admin.ModelAdmin):
   inlines = [AuthorLyricsInline, AuthorMusicInline, RecordInline]
 
 admin.site.register(Song, SongAdmin)
+
+
+# == record ==
+class RecordContributorInline(admin.TabularInline):
+  model = RecordContributor
+
+
+class RecordAdmin(admin.ModelAdmin):
+  list_display = ("title", "song", "creation_date", "release_date")
+  inlines = [RecordContributorInline]
+
+admin.site.register(Record, RecordAdmin)
 
 
 class RecordContributorSkillInline(admin.TabularInline):  # Or use StackedInline for a different layout
