@@ -1,8 +1,7 @@
 from django.contrib import admin
-from django.urls import reverse
-from django.utils.html import format_html
 
-from otasmusic.models import Album, Person, Song, Record, AuthorLyrics, Band, AuthorMusic, RecordContributor, Skill
+from otasmusic.models import Album, Person, Song, Record, AuthorLyrics, Band, AuthorMusic, RecordContributor, Skill, \
+  RecordContributorSkill
 
 
 class SkillAdmin(admin.ModelAdmin):
@@ -40,14 +39,26 @@ class AuthorLyricsInline(admin.TabularInline):  # Or use StackedInline for a dif
 
 class AuthorMusicInline(admin.TabularInline):  # Or use StackedInline for a different layout
   model = AuthorMusic
-
+  extra = 1
 
 class RecordInline(admin.StackedInline):  # Or use StackedInline for a different layout
   model = Record
   extra = 1
+
 
 class SongAdmin(admin.ModelAdmin):
   list_display = ("name",)
   inlines = [AuthorLyricsInline, AuthorMusicInline, RecordInline]
 
 admin.site.register(Song, SongAdmin)
+
+
+class RecordContributorSkillInline(admin.TabularInline):  # Or use StackedInline for a different layout
+  model = RecordContributorSkill
+  extra = 1
+
+class RecordContributorAdmin(admin.ModelAdmin):
+  list_display = ("person", "record")
+  inlines = [RecordContributorSkillInline]
+
+admin.site.register(RecordContributor, RecordContributorAdmin)
