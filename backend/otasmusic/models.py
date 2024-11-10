@@ -107,6 +107,9 @@ class Album(models.Model):
     band = models.ForeignKey(Band, null=True, blank=True, on_delete=models.PROTECT)
     url_img_front = models.CharField(max_length=1024, null=True, blank=True)
 
+    def __str__(self):
+        return self.title
+
 
 class RecordManager(models.Manager):
     # Find closest Record in the future
@@ -168,6 +171,9 @@ class RecordContributor(models.Model):
     class Meta:
         ordering = ['order']
         unique_together = ['record', 'person']
+
+    def __str__(self):
+        return f'{self.record.title} - {self.person.full_name}'
 
 
 class EventManager(models.Manager):
