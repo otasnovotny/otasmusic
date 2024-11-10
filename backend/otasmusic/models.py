@@ -19,6 +19,12 @@ class Person(models.Model):
     class Meta:
         ordering = ['last_name', 'first_name']
 
+    @property
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
+
+    def __str__(self):
+        return self.full_name
 
 class PersonContact(models.Model):
     person = models.ForeignKey(Person, on_delete=models.PROTECT)
@@ -27,6 +33,9 @@ class PersonContact(models.Model):
 
     class Meta:
         ordering = ['order', 'contact']
+
+    def __str__(self):
+        return f'{self.person.full_name} - {self.contact}'
 
 
 class Band(models.Model):
@@ -38,6 +47,9 @@ class Band(models.Model):
 
     class Meta:
         ordering = ['name']
+
+    def __str__(self):
+        return self.name
 
 
 class BandContact(models.Model):
@@ -57,6 +69,9 @@ class Song(models.Model):
 
     class Meta:
         ordering = ['name']
+
+    def __str__(self):
+        return self.name
 
 
 class AuthorLyrics(models.Model):
