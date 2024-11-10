@@ -1,6 +1,6 @@
 # Otas music
 
-This app was created nearby 2016 when I needed to know what record I've done, when and with whom.
+This Django app was created nearby 2016 when I needed to know what record I've done, when and with whom.
 
 Live demo (beta): [music.otasovo.cz](https://music.otasovo.cz/)
 
