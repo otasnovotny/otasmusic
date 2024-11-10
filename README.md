@@ -2,7 +2,7 @@
 
 This app was created nearby 2016 when I needed to know what record I've done, when and with whom.
 
-If I'm not doing any upgrades or tests, it shoul be running on [music.otasovo.cz](https://music.otasovo.cz/)
+Live demo (beta): [music.otasovo.cz](https://music.otasovo.cz/)
 
 - Clone repo and navigate to the root folder
 - Copy `tracks` folder (if any) into `./backend/static/`.
@@ -88,4 +88,4 @@ docker compose -f compose.dev.yml exec -it app python manage.py collectstatic
 
 Check browser at http://localhost
 
-Check browser at http://localhost/admin (log as superuser you created earlier)
+Check browser at http://localhost/admin

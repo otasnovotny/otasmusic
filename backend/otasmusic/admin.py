@@ -35,7 +35,7 @@ admin.site.register(Album, AlbumAdmin)
 # == song ==
 class AuthorLyricsInline(admin.TabularInline):
   model = AuthorLyrics
-
+  extra = 1
 
 class AuthorMusicInline(admin.TabularInline):
   model = AuthorMusic
@@ -71,6 +71,7 @@ class RecordContributorSkillInline(admin.TabularInline):  # Or use StackedInline
 
 class RecordContributorAdmin(admin.ModelAdmin):
   list_display = ("person", "record")
+  list_filter = ("record__song__name", )
   inlines = [RecordContributorSkillInline]
 
 admin.site.register(RecordContributor, RecordContributorAdmin)
