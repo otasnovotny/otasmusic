@@ -1,5 +1,3 @@
-# TODO Otas: optimize queries
-
 import urllib
 import requests, json
 from django.contrib.auth.models import User

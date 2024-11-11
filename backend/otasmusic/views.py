@@ -21,18 +21,18 @@ class HomePageView(TemplateView):
     return context
 
 
-class RecentView(TemplateView):
-  NUM_RECORDS_PER_REQUEST = 3
-
-  template_name = "views/recent_view.html"
-
-  def get_context_data(self, **kwargs):
-    context = super(RecentView, self).get_context_data(**kwargs)
-    page = self.request.GET.get('page', 1)
-    record_list = Record.objects.all()
-    record_paginator = Paginator(record_list, self.NUM_RECORDS_PER_REQUEST)
-    context["record_list"] = record_paginator.page(page)
-    return context
+# class RecentView(TemplateView):
+#   NUM_RECORDS_PER_REQUEST = 3
+#
+#   template_name = "views/recent_view.html"
+#
+#   def get_context_data(self, **kwargs):
+#     context = super(RecentView, self).get_context_data(**kwargs)
+#     page = self.request.GET.get('page', 1)
+#     record_list = Record.objects.all()
+#     record_paginator = Paginator(record_list, self.NUM_RECORDS_PER_REQUEST)
+#     context["record_list"] = record_paginator.page(page)
+#     return context
 
 
 class BandDetailView(DetailView):
@@ -61,18 +61,16 @@ class SongDetailView(DetailView):
                         )
     )
 
-
-class RecordListView(ListView):
-  template_name = "views/record_list_view.html"
-  model = Record
-  context_object_name = "record_list"
-
-  def get_ordering(self):
-    ordering = self.request.GET.get('ordering', self.model._meta.ordering)
-    if ordering in ["song__name"]:
-      return ordering
-    return self.ordering
-
+# class RecordListView(ListView):
+#   template_name = "views/record_list_view.html"
+#   model = Record
+#   context_object_name = "record_list"
+#
+#   def get_ordering(self):
+#     ordering = self.request.GET.get('ordering', self.model._meta.ordering)
+#     if ordering in ["song__name"]:
+#       return ordering
+#     return self.ordering
 
 # @method_decorator(cache_page(60 * 60 * 24 * 3, cache='view'), name='dispatch')
 class RecordDetailView(DetailView):
@@ -91,17 +89,17 @@ class RecordDetailView(DetailView):
     )
 
 
-class PersonListView(LoginRequiredMixin, ListView):
-  template_name = "views/person_list_view.html"
-  model = Person
-  context_object_name = "person_list"
-
-  def get_queryset(self):
-    return Person.objects \
-      .annotate(num_author_lyrics=Count('authorlyrics', distinct=True)) \
-      .annotate(num_author_music=Count('authormusic', distinct=True)) \
-      .annotate(num_record_contributor=Count('recordcontributor', distinct=True)) \
-      .order_by('-num_record_contributor', '-num_author_lyrics', '-num_author_music')
+# class PersonListView(LoginRequiredMixin, ListView):
+#   template_name = "views/person_list_view.html"
+#   model = Person
+#   context_object_name = "person_list"
+#
+#   def get_queryset(self):
+#     return Person.objects \
+#       .annotate(num_author_lyrics=Count('authorlyrics', distinct=True)) \
+#       .annotate(num_author_music=Count('authormusic', distinct=True)) \
+#       .annotate(num_record_contributor=Count('recordcontributor', distinct=True)) \
+#       .order_by('-num_record_contributor', '-num_author_lyrics', '-num_author_music')
 
 
 class PersonDetailView(DetailView):
@@ -151,14 +149,19 @@ class EventDetailView(DetailView):
 
 class AlbumDetailView(DetailView):
   template_name = "views/album_view.html"
-  model = Album
   context_object_name = "album"
+
+  def get_queryset(self):
+    return (
+      Album.objects.get_queryset()
+      .prefetch_related("record_set__song")
+    )
 
 
 class UserSignUpView(FormView):
   template_name = "registration/user_sign_up_form.html"
   form_class = UserSignUpForm
-  success_url = '/'  # TODO stranka s navodem
+  success_url = '/'
 
   def form_valid(self, form):
     form.save()
