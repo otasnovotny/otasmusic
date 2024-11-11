@@ -37,14 +37,29 @@ class RecentView(TemplateView):
 
 class BandDetailView(DetailView):
   template_name = "views/band_view.html"
-  model = Band
   context_object_name = "band"
+
+  def get_queryset(self):
+    return (
+      Band.objects.get_queryset()
+      .prefetch_related("bandcontact_set", "record_set__song", "album_set")
+    )
 
 
 class SongDetailView(DetailView):
   template_name = "views/song_view.html"
-  model = Song
   context_object_name = "song"
+
+  def get_queryset(self):
+    return (
+      Song.objects.get_queryset()
+      .select_related("band")
+      .prefetch_related("authorlyrics_set__person",
+                        "authormusic_set__person",
+                        "record_set__recordcontributor_set__recordcontributorskill_set__skill",
+                        "record_set__recordcontributor_set__person",
+                        )
+    )
 
 
 class RecordListView(ListView):

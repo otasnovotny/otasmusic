@@ -34,21 +34,21 @@
 {#    {% endif %}#}
 
     <!-- Events -->
-    {% if band.event_set.all %}
-        <div class="wrapper">
-            <h2>{% trans "Upcoming events" %}</h2>
-            <ul>
-            {% for event in band.event_set.all %}
-                <li>
-                    {% include "links/event_link.html" with event=event %} |
-                    {{ event.start_datetime }}<br>
-                    {{ event.where }}<br>
-                    {% include 'event_band_gig_time.html' with event=event %}
-                </li>
-            {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
+{#    {% if band.event_set.all %}#}
+{#        <div class="wrapper">#}
+{#            <h2>{% trans "Upcoming events" %}</h2>#}
+{#            <ul>#}
+{#            {% for event in band.event_set.all %}#}
+{#                <li>#}
+{#                    {% include "links/event_link.html" with event=event %} |#}
+{#                    {{ event.start_datetime }}<br>#}
+{#                    {{ event.where }}<br>#}
+{#                    {% include 'event_band_gig_time.html' with event=event %}#}
+{#                </li>#}
+{#            {% endfor %}#}
+{#            </ul>#}
+{#        </div>#}
+{#    {% endif %}#}
 
     <!-- Albums -->
     {% if band.album_set.all %}
