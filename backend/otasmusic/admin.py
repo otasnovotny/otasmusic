@@ -1,3 +1,5 @@
+# TODO Otas: optimize queries
+
 from django.contrib import admin
 
 from otasmusic.models import Album, Person, Song, Record, AuthorLyrics, Band, AuthorMusic, RecordContributor, Skill, \

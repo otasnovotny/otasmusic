@@ -3,7 +3,6 @@ services:
     image: postgres:latest
     restart: unless-stopped
     volumes:
-      - ./dbdump:/docker-entrypoint-initdb.d
       - ./dbdata:/var/lib/postgresql/data
     # necessary only the first time when initializing container
 #    env_file:
