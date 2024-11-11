@@ -19,8 +19,8 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
 from config import settings
-from otasmusic.views import SongDetailView, RecordListView, HomePageView, PersonDetailView, RecordDetailView, PersonListView, \
-    RecentView, BandDetailView, AlbumDetailView, EventDetailView, ServicesView, ContactView, CalendarView
+from otasmusic.views import SongDetailView, HomePageView, PersonDetailView, RecordDetailView, \
+    BandDetailView, AlbumDetailView
 
 
 urlpatterns = [
