@@ -32,22 +32,22 @@
     <h3>{% trans "Contributors" %}</h3>
     <table class="btmspace-15">
         <thead>
-            <tr>
-                <th>{% trans "Person" %}
-                <th>{% trans "Contrib by" %}
-            </tr>
+        <tr>
+            <th>{% trans "Person" %}
+            <th>{% trans "Contrib by" %}
+        </tr>
         </thead>
         <tbody>
-            {% for record_contributor in record.recordcontributor_set.all %}
-                <tr>
-                    <td>{% include 'links/person_link.html' with person=record_contributor.person %}</td>
-                    <td>
-                        {% for record_contributor_skill in record_contributor.recordcontributorskill_set.all %}
-                            {{ record_contributor_skill.skill.get_slug_display }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    </td>
-                </tr>
-            {% endfor %}
+        {% for record_contributor in record.recordcontributor_set.all %}
+            <tr>
+                <td>{% include 'links/person_link.html' with person=record_contributor.person %}</td>
+                <td>
+                    {% for record_contributor_skill in record_contributor.recordcontributorskill_set.all %}
+                        {{ record_contributor_skill.skill.get_slug_display }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
         </tbody>
     </table>
 {% endif %}

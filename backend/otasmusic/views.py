@@ -65,7 +65,15 @@ class RecordDetailView(DetailView):
   context_object_name = "record"
 
   def get_queryset(self):
-    return Record.objects.get_queryset().select_related("song", "band", "album")
+    return (
+      Record.objects
+      .get_queryset()
+      .select_related("song", "band", "album")
+      .prefetch_related("song__authorlyrics_set__person",
+                        "song__authormusic_set__person",
+                        "recordcontributor_set__person",
+                        "recordcontributor_set__recordcontributorskill_set__skill")
+    )
 
 
 class PersonListView(LoginRequiredMixin, ListView):

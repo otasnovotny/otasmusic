@@ -47,7 +47,6 @@ MIDDLEWARE = [
   'django.contrib.messages.middleware.MessageMiddleware',
   'django.middleware.clickjacking.XFrameOptionsMiddleware',
   'django.middleware.locale.LocaleMiddleware',
-  'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 if DEBUG:
