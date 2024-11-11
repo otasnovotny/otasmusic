@@ -17,6 +17,8 @@ Including another URLconf
 from django.urls import include, re_path
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+
+from config import settings
 from otasmusic.views import SongDetailView, RecordListView, HomePageView, PersonDetailView, RecordDetailView, PersonListView, \
     RecentView, BandDetailView, AlbumDetailView, EventDetailView, ServicesView, ContactView, CalendarView
 
@@ -41,3 +43,8 @@ urlpatterns = [
     # url(r'event/(?P<pk>\d+)/?$', EventDetailView.as_view(), name='event'),
     re_path(r'^$', HomePageView.as_view(), name="home"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        re_path('__debug__/', include('debug_toolbar.urls'))
+    ]

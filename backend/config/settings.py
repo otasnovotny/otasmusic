@@ -8,12 +8,12 @@ CONFIG_ROOT = os.path.join(BASE_DIR, 'config')
 # read secret .env variables
 env_file = os.path.join(BASE_DIR - 1, '.env')
 if not os.path.isfile(env_file):
-    raise FileNotFoundError('Configuration file .env does not exist!')
+  raise FileNotFoundError('Configuration file .env does not exist!')
 env = environ.Env()
 env.read_env(env_file)
 
 DATABASES = {
-    'default': env.db('DATABASE_URL'),
+  'default': env.db('DATABASE_URL'),
 }
 
 DEBUG = env.bool('IS_DEBUG', default=False)
@@ -23,46 +23,58 @@ CSRF_TRUSTED_ORIGINS = [f'https://{env.str("DOMAIN")}']
 
 # Application definition
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'corsheaders',
-    'otasmusic',
-    'embed_video',
+  'django.contrib.admin',
+  'django.contrib.auth',
+  'django.contrib.contenttypes',
+  'django.contrib.sessions',
+  'django.contrib.messages',
+  'django.contrib.staticfiles',
+  'corsheaders',
+  'otasmusic',
+  'embed_video',
 ]
 
+if DEBUG:
+  INSTALLED_APPS.append('debug_toolbar')
+
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+  'django.middleware.security.SecurityMiddleware',
+  'django.contrib.sessions.middleware.SessionMiddleware',
+  'django.middleware.common.CommonMiddleware',
+  'django.middleware.csrf.CsrfViewMiddleware',
+  'corsheaders.middleware.CorsMiddleware',
+  'django.contrib.auth.middleware.AuthenticationMiddleware',
+  'django.contrib.messages.middleware.MessageMiddleware',
+  'django.middleware.clickjacking.XFrameOptionsMiddleware',
+  'django.middleware.locale.LocaleMiddleware',
+  'debug_toolbar.middleware.DebugToolbarMiddleware',
+]
+
+if DEBUG:
+  MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware')
+
+# Allow internal requests (you can restrict this to specific IPs for security)
+INTERNAL_IPS = [
+    '127.0.0.1',  # For local development
 ]
 
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
+  {
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [os.path.join(BASE_DIR, 'templates')]
+    ,
+    'APP_DIRS': True,
+    'OPTIONS': {
+      'context_processors': [
+        'django.template.context_processors.debug',
+        'django.template.context_processors.request',
+        'django.contrib.auth.context_processors.auth',
+        'django.contrib.messages.context_processors.messages',
+      ],
     },
+  },
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
@@ -71,20 +83,19 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+  {
+    'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+  },
+  {
+    'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+  },
+  {
+    'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+  },
+  {
+    'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+  },
 ]
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
@@ -92,8 +103,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 LANGUAGE_CODE = 'cs'
 
 LANGUAGES = [
-    ('cs', _('Czech')),
-    ('en', _('English'))
+  ('cs', _('Czech')),
+  ('en', _('English'))
 ]
 
 TIME_ZONE = 'UTC'
@@ -102,12 +113,12 @@ USE_L10N = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "otasmusic/static"),
-    os.path.join(BASE_DIR, "otasmusic/static/layout/edgpress")
+  os.path.join(BASE_DIR, "otasmusic/static"),
+  os.path.join(BASE_DIR, "otasmusic/static/layout/edgpress")
 ]
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
+  os.path.join(BASE_DIR, 'locale'),
 )
 
 # CACHE_PATH = os.path.join(ROOT_PATH, '../..', "otasmusic/cache")
