@@ -164,8 +164,7 @@ class Record(models.Model):
     ordering = ['-release_date', 'album_order']
 
   def __str__(self):
-    return f'{self.song.name} - {self.title}'
-
+    return f'{self.song_id} - {self.title}'
 
 class RecordContributor(models.Model):
   record = models.ForeignKey(Record, on_delete=models.CASCADE)
