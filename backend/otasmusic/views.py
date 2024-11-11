@@ -97,10 +97,35 @@ class PersonDetailView(DetailView):
   def get_context_data(self, **kwargs):
     context = super(PersonDetailView, self).get_context_data(**kwargs)
     person = context[self.context_object_name]
-    context['author_lyrics'] = AuthorLyrics.objects.filter(person=person)
-    context['author_music'] = AuthorMusic.objects.filter(person=person).order_by("song__name")
-    context['record_contributors'] = RecordContributor.objects.filter(person=person).order_by("-record__release_date")
+    context['author_lyrics'] = (
+      AuthorLyrics.objects
+      .filter(person=person)
+      .select_related("song")
+      .order_by("song__name")
+    )
+
+    context['author_music'] = (
+      AuthorMusic.objects
+      .filter(person=person)
+      .select_related("song")
+      .order_by("song__name")
+    )
+
+    context['record_contributors'] = (
+      RecordContributor.objects
+      .select_related("record__song__band", "person")
+      .prefetch_related("recordcontributorskill_set__skill")
+      .filter(person=person)
+      .order_by("-record__release_date")
+    )
     return context
+
+  def get_queryset(self):
+    return (
+      Person.objects
+      .get_queryset()
+      .prefetch_related("personcontact_set")
+    )
 
 
 class EventDetailView(DetailView):

@@ -5,7 +5,7 @@
     {% if person.city %}
         <p>{% trans "City" %}: {{ person.city }}</p>
     {% endif %}
-    {% if person.personcontact_set.all %}
+    {% if person.personcontact_set %}
         <p>
         {% for person_contact in person.personcontact_set.all %}
             {% include 'contact.html' with contact=person_contact.contact %}<br />
@@ -21,19 +21,19 @@
 
     <div id="tabs">
         <ul>
-            {% if record_contributors.all %}
+            {% if record_contributors %}
                 <li><a href="#tabs-record-contributor">{% trans "Record contributor" %}</a></li>
             {% endif %}
-            {% if author_lyrics.all %}
+            {% if author_lyrics %}
                 <li><a href="#tabs-author-lyrics">{% trans "Lyrics author/co-author" %}</a></li>
             {% endif %}
-            {% if author_music.all %}
+            {% if author_music %}
                 <li><a href="#tabs-author-music">{% trans "Music author/co-author" %}</a></li>
             {% endif %}
         </ul>
 
         <!-- Record contributor -->
-        {% if record_contributors.all %}
+        {% if record_contributors %}
             <div id="tabs-record-contributor">
                 <table>
                     <thead>
@@ -59,7 +59,7 @@
         {% endif %}
 
         <!-- Lyrics author -->
-        {% if author_lyrics.all %}
+        {% if author_lyrics %}
             <div id="tabs-author-lyrics">
                 <table>
                     <thead>
@@ -79,7 +79,7 @@
         {% endif %}
 
         <!-- Music author -->
-        {% if author_music.all %}
+        {% if author_music %}
             <div id="tabs-author-music">
                 <table>
                     <thead>
