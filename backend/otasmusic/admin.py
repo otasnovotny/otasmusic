@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from otasmusic.models import Album, Person, Song, Record, AuthorLyrics, Band, AuthorMusic, RecordContributor, Skill, \
-  RecordContributorSkill
+  RecordContributorSkill, PersonContact
 
 
 class SkillAdmin(admin.ModelAdmin):
@@ -10,7 +10,12 @@ class SkillAdmin(admin.ModelAdmin):
 admin.site.register(Skill, SkillAdmin)
 
 
+class PersonContactsInline(admin.TabularInline):
+  model = PersonContact
+  extra = 1
+
 class PersonAdmin(admin.ModelAdmin):
+  inlines = [PersonContactsInline]
   list_display = ("first_name", "last_name", "email", "city")
 
 admin.site.register(Person, PersonAdmin)
