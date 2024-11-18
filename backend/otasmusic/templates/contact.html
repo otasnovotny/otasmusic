@@ -22,7 +22,8 @@
         {% elif 'youtube' in contact %}
             <img src="{% static 'icons/youtube.png' %}" title="{{ contact }}" />
         {% else %}
-            <img src="{% static 'icons/url.png' %}" title="{{ contact }}" />
+{#            <img src="{% static 'icons/url.png' %}" title="{{ contact }}" />#}
+            <span>{{ contact }}</span>
         {% endif %}
     </a>
 {% elif contact|is_valid_email %}
